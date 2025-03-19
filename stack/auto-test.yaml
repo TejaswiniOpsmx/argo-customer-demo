@@ -12,9 +12,11 @@ spec:
         revision: new-test
         files:
           - path: "source-apps/**/*.yaml"  # This will include all .yaml files under source-apps
+        values:
+          base_dir: "source-apps/config.json.name"
   template:
     metadata:
-      name: '{{ .name }}'
+      name: '{{ .values.base_dir }}'
     spec:
       project: default
       source:
