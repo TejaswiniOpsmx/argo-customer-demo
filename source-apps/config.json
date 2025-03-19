@@ -1,20 +1,29 @@
 {
-  "apiVersion": "argoproj.io/v1alpha1",
-  "kind": "ApplicationSet",
-  "metadata": {
-    "name": "source-apps"
-  },
-  "spec": {
-    "generators": [
-      {
-        "git": {
-          "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
-          "revision": "new-test",
-          "files": [
-            { "path": "source-apps/**/*.yaml" }
-          ]
-        }
-      }
-    ]
-  }
+  "applications": [
+    {
+      "name": "syncapp-dev",
+      "path": "source-apps/applications/appset-automated-sync/syncapp-dev.yaml"
+    },
+    {
+      "name": "syncapp-prod",
+      "path": "source-apps/applications/appset-automated-sync/syncapp-prod.yaml"
+    },
+    {
+      "name": "1-git-source",
+      "path": "source-apps/applications/git-source/1-git-source.yaml"
+    },
+    {
+      "name": "2-git-source",
+      "path": "source-apps/applications/git-source/2-git-source.yaml"
+    },
+    {
+      "name": "1-helm-source",
+      "path": "source-apps/applications/helm-source/1-helm-source.yaml"
+    },
+    {
+      "name": "2-helm-source",
+      "path": "source-apps/applications/helm-source/2-helm-source.yaml"
+    },
+ .
+  ]
 }
