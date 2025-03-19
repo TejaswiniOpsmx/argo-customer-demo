@@ -11,17 +11,16 @@ spec:
         repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
         revision: new-test
         files:
-          - path: "source-apps/**/*.json"  # This will include all .yaml files under source-apps
-        values:
-          base_dir: "source-apps"
+          - path: "source-apps/config.json"  # Path to the config.json file
   template:
     metadata:
-      name: '{{ .values.config.json.application.name }}
+      name: '{{ .name }}'  # Use the "name" from config.json for the application name
+    spec:
       project: default
       source:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         targetRevision: "new-test"
-        path: '{{ .values.base_dir }}'  # Set path dynamically for each application file
+        path: '{{ .path }}'  # Use the "path" from config.json for the application path
       destination:
         server: https://kubernetes.default.svc
         namespace: default
