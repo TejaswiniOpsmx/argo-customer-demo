@@ -14,7 +14,7 @@ spec:
           - path: "source-apps/**/*.yaml"  # This will include all .yaml files under source-apps
   template:
     metadata:
-      name: '{{ .path }}' 
+      name: '{{ .name | toLower }}'
     spec:
       project: default
       source:
