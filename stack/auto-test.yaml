@@ -16,7 +16,7 @@ spec:
           base_dir: "source-apps"
   template:
     metadata:
-      name: '{{ .values.base_dir | replace "/" "-" }}-{{ .path | string | replace "/" "-" }}'
+      name: '{{ .values.config.json.application.name }}
       project: default
       source:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
