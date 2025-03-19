@@ -20,7 +20,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: "https://github.com/OpsMx/argo-customer-demo.git"
+        repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         targetRevision: "new-test"
         path: '{{ .values.base_dir }}'  # Access base_dir from values
       destination:
