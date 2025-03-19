@@ -16,13 +16,13 @@ spec:
           base_dir: "source-apps"
   template:
     metadata:
-      name: '{{ .values.base_dir }}/{{ .path.basename }}' 
+      name: '{{ .values.base_dir }}/{{ .path.basename }}'
       project: default
-    spec:  # This is where the spec.template.spec should be defined
+    spec:
       source:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         targetRevision: "new-test"
-        path: '{{ .values.base_dir }}'  # Properly resolve the base directory
+        path: '{{ .values.base_dir }}'  # Resolves the base directory for each application
       destination:
         server: https://kubernetes.default.svc
         namespace: default
