@@ -11,18 +11,18 @@ spec:
         repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
         revision: new-test
         files:
-          - path: "source-apps/**/*.yaml"  # Path to include files in the repository
+          - path: "source-apps/**/*.yaml"
         values:
-          base_dir: "source-apps"  # Define base_dir here
+          base_dir: "source-apps"
   template:
     metadata:
-      name: '{{ .path | replace "/" "-" }}'  # Replace slashes with dashes to ensure unique names
+      name: '{{ .path | toString | replace "/" "-" }}'  # Ensure .path is treated as a string before replacing slashes
     spec:
       project: default
       source:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         targetRevision: "new-test"
-        path: '{{ .values.base_dir }}/{{ .path.basename }}'  # Correct path based on base_dir
+        path: '{{ .values.base_dir }}/{{ .path.basename }}'  # Properly resolve the base directory
       destination:
         server: https://kubernetes.default.svc
         namespace: default
