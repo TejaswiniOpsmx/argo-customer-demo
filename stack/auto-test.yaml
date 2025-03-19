@@ -16,7 +16,7 @@ spec:
           base_dir: "source-apps"
   template:
     metadata:
-      name: '{{ .path | replace "/" "-" }}-{{ .path.basename }}'  # Unique name
+      name: '{{ .path | string | replace "/" "-" }}-{{ .path.basename }}'  # Ensure string and then replace slashes
     spec:
       project: default
       source:
