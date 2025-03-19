@@ -9,7 +9,7 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
     - git:
-        repoURL: https://github.com/OpsMx/argo-customer-demo.git
+        repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
         revision: new-test
         files:
           - path: "source-apps/**/*.yaml"
@@ -21,9 +21,9 @@ spec:
     spec:
       project: default
       source:
-        repoURL: "https://github.com/OpsMx/argo-customer-demo.git"
+        repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         targetRevision: "new-test"
-        path:  '{{ app.path }}' #'{{ .Values.b }}'  # Use base_dir defined in config.json
+        path:  '{{ .values.base_dir }}' #'{{ .Values.b }}'  # Use base_dir defined in config.json
       destination:
         server: https://kubernetes.default.svc
         namespace: default
