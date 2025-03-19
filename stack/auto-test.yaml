@@ -16,12 +16,12 @@ spec:
           base_dir: "source-apps"
   template:
     metadata:
-      name: '{{ .values.base_dir | replace "/" "-" }}-{{ .path | basename | replace "/" "-" }}'  # Ensure unique name    spec:
+      name: '{{ .values.base_dir }}/{{ .path.basename }}' 
       project: default
       source:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         targetRevision: "new-test"
-        path: '{{ .values.base_dir }}/{{ .path.basename }}'  # Properly resolve the base directory
+        path: '{{ .values.base_dir }}'  # Properly resolve the base directory
       destination:
         server: https://kubernetes.default.svc
         namespace: default
