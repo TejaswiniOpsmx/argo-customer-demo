@@ -16,7 +16,7 @@ spec:
           base_dir: "source-apps"
   template:
     metadata:
-      name: '{{ .path | string | replace "/" "-" }}-{{ .path.basename }}'  # Ensure string and then replace slashes
+      name: '{{ .values.base_dir }}/{{ .path.basename }}'  # Properly resolve the base directory # Ensure string and then replace slashes
     spec:
       project: default
       source:
