@@ -1,4 +1,3 @@
-
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
@@ -12,7 +11,7 @@ spec:
         repoURL: https://github.com/OpsMx/argo-customer-demo.git
         revision: new-test
         files:
-          - path: "source-apps/**"
+          - path: "source-apps/config.json"  # Ensure config.json is correctly loaded
   template:
     metadata:
       name: '{{ .path.basename | replace ".json" "" }}'  # Name based on config.json
@@ -21,7 +20,7 @@ spec:
       source:
         repoURL: "https://github.com/OpsMx/argo-customer-demo.git"
         targetRevision: "new-test"
-        path: '{{ .base_dir }}'  # Use base_dir defined in config.json
+        path: '{{ .base_dir }}'  # Accessing base_dir from config.json
       destination:
         server: https://kubernetes.default.svc
         namespace: default
@@ -29,6 +28,7 @@ spec:
         automated:
           prune: true
           selfHeal: true
+
 
 
 
