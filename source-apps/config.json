@@ -1,3 +1,20 @@
 {
-  "base_dir": "source-apps"
+  "apiVersion": "argoproj.io/v1alpha1",
+  "kind": "ApplicationSet",
+  "metadata": {
+    "name": "source-apps"
+  },
+  "spec": {
+    "generators": [
+      {
+        "git": {
+          "repoURL": "https://github.com/OpsMx/argo-customer-demo.git",
+          "revision": "new-test",
+          "files": [
+            { "path": "source-apps/**/*.yaml" }
+          ]
+        }
+      }
+    ]
+  }
 }
