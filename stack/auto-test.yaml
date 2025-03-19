@@ -13,16 +13,16 @@ spec:
         files:
           - path: "source-apps/**/*.yaml"  # This will include all .yaml files under source-apps
         values:
-          base_dir: "source-apps/config.json.name"
+          base_dir: "source-apps"
   template:
     metadata:
-      name: '{{ .values.base_dir }}'
+      name: '{{ .values.base_dir | replace "/" "-" }}-{{ .path.basename | replace "." "-" }}'
     spec:
       project: default
       source:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         targetRevision: "new-test"
-        path: '{{ .path }}'  # Set path dynamically for each application file
+        path: '{{ .values.base_dir }}'  # Set path dynamically for each application file
       destination:
         server: https://kubernetes.default.svc
         namespace: default
