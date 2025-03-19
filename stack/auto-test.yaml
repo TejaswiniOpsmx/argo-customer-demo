@@ -12,7 +12,6 @@ spec:
         repoURL: https://github.com/OpsMx/argo-customer-demo.git
         revision: new-test
         files:
-          - path: "source-apps/config.json" 
           - path: "source-apps/**config.json"
   template:
     metadata:
