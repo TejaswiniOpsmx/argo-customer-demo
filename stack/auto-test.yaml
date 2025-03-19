@@ -18,6 +18,7 @@ spec:
     metadata:
       name: '{{ .values.base_dir }}/{{ .path.basename }}' 
       project: default
+    spec:  # This is where the spec.template.spec should be defined
       source:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         targetRevision: "new-test"
