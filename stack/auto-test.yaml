@@ -1,4 +1,3 @@
-
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
@@ -12,16 +11,16 @@ spec:
         repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
         revision: new-test
         files:
-          - path: "source-apps/**/*.yaml" 
+          - path: "source-apps/**/*.yaml"  # This will include all .yaml files under source-apps
   template:
     metadata:
-      name: '{{ .name }}'  # Name based on config.json
+      name: '{{ .path.basename }}'  # Dynamically set name based on file name
     spec:
       project: default
       source:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         targetRevision: "new-test"
-        path:  '{{ .path }}' #'{{ .Values.b }}'  # Use base_dir defined in config.json
+        path: '{{ .path }}'  # Set path dynamically for each application file
       destination:
         server: https://kubernetes.default.svc
         namespace: default
@@ -29,40 +28,3 @@ spec:
         automated:
           prune: true
           selfHeal: true
-
-
-
-#this code working 
-# apiVersion: argoproj.io/v1alpha1
-# kind: ApplicationSet
-# metadata:
-#   name: source-apps
-#   namespace: argocd
-# spec:
-#   goTemplate: true
-#   goTemplateOptions: ["missingkey=error"]
-#   generators:
-#   - git:
-#       repoURL: https://github.com/OpsMx/argo-customer-demo.git
-#       revision: new-test
-#       files:
-#         - path: "source-apps/**/*.yaml"  # This will recursively include all .yaml files under the source-apps directory
-#       values:
-#         base_dir: "{{index .path.segments 0}}/{{index .path.segments 1}}/{{index .path.segments 2}}"
-#   template:
-#     metadata:
-#       name: '{{.path.basename}}'  # Dynamic name based on the file being deployed
-#     spec:
-#       project: default
-#       source:
-#         repoURL: https://github.com/OpsMx/argo-customer-demo.git
-#         targetRevision: new-test
-#         path: "{{.values.base_dir}}"  # Use the base_dir to target the correct path
-#       destination:
-#         server: https://kubernetes.default.svc
-#         namespace: test
-#       syncPolicy:
-#         automated:
-#           prune: true
-#           selfHeal: true  # Use the basename of the application directory for the namespace
-
