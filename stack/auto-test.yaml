@@ -11,7 +11,7 @@ spec:
         repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
         revision: new-test
         files:
-          - path: "source-apps/**/*.yaml"  # This will include all .yaml files under source-apps
+          - path: "source-apps/**/*.json"  # This will include all .yaml files under source-apps
         values:
           base_dir: "source-apps"
   template:
