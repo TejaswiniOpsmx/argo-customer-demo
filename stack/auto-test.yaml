@@ -11,7 +11,7 @@ spec:
           - path: "source-path/*"  # The parent directory where config.json resides
   template:
     metadata:
-      name: "{{path.basename}}"  # Dynamically naming the application based on directory name
+      name: "{{.name}}"  # Dynamically naming the application based on directory name
     spec:
       project: default
       source:
