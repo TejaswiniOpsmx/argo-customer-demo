@@ -11,7 +11,7 @@ spec:
       repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
       revision: new-test
       files:
-        - path: "source-apps/config.json"  # This will recursively include all .yaml files under the source-apps directory
+        - path: "source-apps/config.json/*"  # This will recursively include all .yaml files under the source-apps directory
       # values:
       #   base_dir: "{{index .path.segments 0}}/{{index .path.segments 1}}/{{index .path.segments 2}}"
   template:
