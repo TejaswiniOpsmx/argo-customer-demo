@@ -7,8 +7,8 @@ spec:
     - git:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         revision: "new-test"  # Use your desired branch or commit SHA
-        directories:
-          - path: "source-path/*.json"  # The parent directory where config.json resides
+        path: "source-path/config.json"  # The parent directory where config.json resides
+        jsonPath: ".generators[*]"
   template:
     metadata:
       name: "{{.name}}"  # Dynamically naming the application based on directory name
