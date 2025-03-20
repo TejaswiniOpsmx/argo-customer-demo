@@ -14,13 +14,13 @@ spec:
         - path: "source-apps/config.json"
   template:
     metadata:
-      name: '{{ .name }}'  # Directly reference the 'name' field for each application
+      name: '{{ name }}'  # Directly reference the 'name' field for each application
     spec:
       project: default
       source:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         targetRevision: "new-test"
-        path: '{{ .path }}'  # Directly reference the 'path' field for each application
+        path: '{{ path }}'  # Directly reference the 'path' field for each application
       destination:
         server: https://kubernetes.default.svc
         namespace: test
