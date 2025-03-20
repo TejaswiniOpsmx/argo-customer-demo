@@ -15,13 +15,13 @@ spec:
   template:
    
     metadata:
-      name: '{{ .name }}'
+      name: '{{ .applications.name }}'
     spec:
       project: default
       source:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         targetRevision: "new-test"
-        path: '{{ .path }}'
+        path: '{{ .applications.path }}'
       destination:
         server: https://kubernetes.default.svc
         namespace: test
