@@ -10,18 +10,17 @@ spec:
   - git:
       repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
       revision: new-test
-      json:
-        - path: "source-apps/config.json/*"
-          jqFilter: ".applications"
+      directories::
+        - path: "source-apps"
   template:
     metadata:
-      name: '{{ .name }}'  # Directly reference the 'name' field for each application
+      name: "{{path.basename}}"  # Directly reference the 'name' field for each application
     spec:
       project: default
       source:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         targetRevision: "new-test"
-        path: '{{ .path }}'  # Directly reference the 'path' field for each application
+        path: "source-apps/config.json"  # Directly reference the 'path' field for each application
       destination:
         server: https://kubernetes.default.svc
         namespace: test
