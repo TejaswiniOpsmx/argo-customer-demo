@@ -7,7 +7,7 @@ spec:
     - git:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         revision: "new-test"  # Branch or commit SHA
-        path: "source-apps/config.json/*"  # Path to the config.json file
+        path: "source-apps/*config.json"  # Path to the config.json file
         jsonPath: "$.generators[*].path"  # JSONPath to extract paths from the config.json
   template:
     metadata:
