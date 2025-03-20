@@ -15,6 +15,7 @@ spec:
         #values:
          # base_dir: 
   template:
+    {{- range .applications }}
     metadata:
       name: '{{ .name }}'  # Use the "name" from config.json for the application name
     spec:
