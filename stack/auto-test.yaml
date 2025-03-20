@@ -13,6 +13,7 @@ spec:
         files:
           - path: source-apps/config.json  # Path to the config.json file
   template:
+    {{ .applications }}
     metadata:
       name: '{{ .name }}'  # Access the name for the application
     spec:
