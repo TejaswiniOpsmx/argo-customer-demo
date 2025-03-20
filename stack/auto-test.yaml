@@ -6,18 +6,18 @@ spec:
   generators:
     - git:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
-        revision: "new-test"  # Use your desired branch or commit SHA
-        path: "source-path/config.json"  # The parent directory where config.json resides
-        jsonPath: ".*"
+        revision: "new-test"  # Branch or commit SHA
+        path: "source-path/config.json"  # Path to config.json
+        jsonPath: "$.generators[*].path"  # JSONPath to extract all generator paths
   template:
     metadata:
-      name: "{{.name}}"  # Dynamically naming the application based on directory name
+      name: "{{.name}}"  # Dynamic application name based on the directory or path
     spec:
       project: default
       source:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         targetRevision: "new-test"
-        path:  "{{.path}}"  # Path to your config.json in the repository
+        path: "{{.path}}"  # Dynamically assign the path to each generator's path
       destination:
         server: "https://kubernetes.default.svc"
         namespace: default
