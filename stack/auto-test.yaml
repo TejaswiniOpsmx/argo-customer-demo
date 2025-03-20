@@ -12,6 +12,7 @@ spec:
       revision: new-test
       json:
         - path: "source-apps/config.json/*"
+          jqFilter: ".applications"
   template:
     metadata:
       name: '{{ name }}'  # Directly reference the 'name' field for each application
