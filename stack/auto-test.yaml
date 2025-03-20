@@ -11,11 +11,13 @@ spec:
         repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
         revision: new-test
         files:
-          - path: source-apps/config.json  # Path to the config.json file
+          - path: source-apps/config.json# Path to the config.json file
+        values:
+          base_dir: source-apps/*
+          
   template:
-    {{ .applications }}
     metadata:
-      name: '{{ .name }}'  # Access the name for the application
+      name: '{{ .values.name }}'  # Access the name for the application
     spec:
       project: default
       source:
