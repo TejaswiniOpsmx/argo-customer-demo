@@ -1,12 +1,12 @@
 {
   "applications": [
     {
-      "name": "syncapp-dev",
-      "path": "source-apps/applications/appset-automated-sync/syncapp-dev.yaml"
+      "name": "generators",
+      "path": "source-apps/application-set/generators"
     },
     {
-      "name": "syncapp-prod",
-      "path": "source-apps/applications/appset-automated-sync/syncapp-prod.yaml"
+      "name": "progressive-syncs",
+      "path": "source-apps/application-set/progressive-syncs"
     }
   ]
 }
