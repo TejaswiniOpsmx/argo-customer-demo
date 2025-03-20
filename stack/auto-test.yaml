@@ -15,7 +15,7 @@ spec:
   template:
    
     metadata:
-      name: '{{ .path.name }}'
+      name: '{{ .path.applications.name }}'
     spec:
       project: default
       source:
