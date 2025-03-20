@@ -15,7 +15,7 @@ spec:
           
   template:
     metadata:
-      name: '{{ .path.applications.name }}'  # Access the name for the application
+      name: '{{ .applications.name }}'  # Access the name for the application
     spec:
       project: default
       source:
