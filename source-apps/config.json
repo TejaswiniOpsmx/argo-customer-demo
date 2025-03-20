@@ -2,7 +2,7 @@
   "applications": [
     {
       "name": "generators",
-      "path": "source-apps/application-set/generators/git-generator.yaml"
+      "path": "source-apps/application-set/generators/**/*.yaml""
     },
     {
       "name": "progressive-syncs",
