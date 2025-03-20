@@ -22,7 +22,7 @@ spec:
       source:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         targetRevision: "new-test"
-        path: '{{ .path.name }}'  # Use the "path" from config.json for the application path
+        path: '{{ .name }}'  # Use the "path" from config.json for the application path
       destination:
         server: https://kubernetes.default.svc
         namespace: default
