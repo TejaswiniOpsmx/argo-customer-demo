@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: source-apps
+  name: '{{ .name }}' 
   namespace: argocd
 spec:
   goTemplate: true
