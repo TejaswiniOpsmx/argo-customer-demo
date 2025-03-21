@@ -2,7 +2,7 @@
   { 
      "name": "app1",
     "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
-    "path": "source-apps/application-set/generators",
+    "path": "source-apps/application-set/generators/*/*.yaml",
     "namespace": "default",
     "base_dir": "source-apps/*",
     "targetRevision": "new-test"
@@ -10,7 +10,7 @@
   { 
     "name": "git-source",
     "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
-    "path": "source-apps/applications/git-source",
+    "path": "source-apps/applications/git-source/*/*.yaml",
     "namespace": "default",
     "targetRevision": "new-test"
   }
