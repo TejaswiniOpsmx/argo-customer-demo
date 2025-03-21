@@ -1,16 +1,16 @@
 [
-  {
+  { 
+     "name": "app1",
     "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
     "path": "source-apps/application-set/generators",
-    "name": "app1",
     "namespace": "default",
     "base_dir": "source-apps/*",
     "targetRevision": "new-test"
   },
-  {
+  { 
+    "name": "git-source",
     "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
     "path": "source-apps/applications/git-source",
-    "name": "git-source",
     "namespace": "default",
     "targetRevision": "new-test"
   }
