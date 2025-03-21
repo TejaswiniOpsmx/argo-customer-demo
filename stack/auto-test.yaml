@@ -47,8 +47,8 @@ spec:
     - git:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         revision: "new-test"
-        directories:
-          - path: "source-apps/* config.json"
+        files:
+          - path: "source-apps/config.json"
   template:
     metadata:
       name: "{{.name}}"  # Assuming 'name' is part of your config.json
