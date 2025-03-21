@@ -36,7 +36,7 @@ spec:
             ]
   template:
     metadata:
-      name: "{{.path.name | lower | replace(' ', '-') | replace('_', '-') | trimSuffix('-')}}"
+      name: "{{.path.name}}"
     spec:
       project: "default"
       source:
