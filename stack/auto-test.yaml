@@ -13,19 +13,19 @@ spec:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         revision: "new-test"
         files:
-          - path: "source-apps/config.json"
+          - path: "config.json"
   template:
     metadata:
-      name: "{{.applications.name}}"
+      name: "{{.name}}"
     spec:
       project: "default"
       source:
-        repoURL: "{{.applications.repoURL}}"
-        targetRevision: "{{.applications.targetRevision}}"
-        path: "{{.applications.path}}"
+        repoURL: "{{.repoURL}}"
+        targetRevision: "{{.targetRevision}}"
+        path: "{{.path}}"
       destination:
         server: "https://kubernetes.default.svc"
-        namespace: "{{.applications.namespace}}"
+        namespace: "{{.namespace}}"
       syncPolicy:
         automated:
           prune: true
