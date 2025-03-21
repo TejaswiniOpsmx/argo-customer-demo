@@ -18,11 +18,11 @@ spec:
           base_dir: "source-apps/*"
   template:
     metadata:
-      name: "{{.base_dir}}" 
+      name: "{{.name}}"  # Assuming 'name' is part of your config.json
     spec:
       project: "default"
       source:
-        repoURL: "{{.repoURL}}"
+        repoURL: "{{.repoURL}}"  # This assumes 'repoURL' is in your config.json
         targetRevision: "{{.targetRevision}}"
         path: "{{.path}}"
       destination:
