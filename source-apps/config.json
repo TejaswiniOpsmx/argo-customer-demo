@@ -1,7 +1,7 @@
 [
   {
     "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
-    "path": "source-apps/application-set/generators",
+    "path": "source-apps/application-set/generators/git-generator.yaml",
     "name": "app1",
     "namespace": "default",
     "targetRevision": "new-test"
