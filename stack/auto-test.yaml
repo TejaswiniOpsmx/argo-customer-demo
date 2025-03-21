@@ -9,6 +9,7 @@ spec:
       revision: "new-test"
       files:
       - path: "source-apps/config.json"  # Reading from config.json in the repo
+      jsonPath: "{{range .applications}}{{.}}{{end}}"
   template:
     metadata:
       name: "{{name}}"
