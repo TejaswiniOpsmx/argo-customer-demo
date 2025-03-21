@@ -1,52 +1,86 @@
+# applicationset.yaml (Git Generator)
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: git-appset-jsonpath
   namespace: argocd
-  labels:
-    argocd.argoproj.io/instance: sample-app
 spec:
   generators:
-    - git:
-        repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
-        revision: "new-test"
-        files:
-          - path: "source-apps/config.json"
-        jsonnet:
-          extVars:
-            - name: NAMESPACE
-              value: "default"
-          expr: |
-            local config = import 'source-apps/config.json';
-            [
-              {
-                name: config.app1.name,
-                repoURL: config.app1.repoURL,
-                path: config.app1.path,
-                targetRevision: config.app1.targetRevision,
-                namespace: config.app1.namespace
-              },
-              {
-                name: config["git-source"].name,
-                repoURL: config["git-source"].repoURL,
-                path: config["git-source"].path,
-                targetRevision: config["git-source"].targetRevision,
-                namespace: config["git-source"].namespace
-              }
-            ]
+  - git:
+      repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git" # Replace with your config repo URL
+      revision: "HEAD" # or specific branch/tag
+      files:
+      - path: "source-apps/**/config.json" # Adjust the path to match your config.json locations
   template:
     metadata:
-      name: "{{.name}}"
+      name: "{{path.basenameNormalized}}-app"
     spec:
-      project: "default"
+      project: "default" # Adjust project if needed
       source:
-        repoURL: "{{.repoURL}}"
-        targetRevision: "{{.targetRevision}}"
+        repoURL: "{{.repo}}"
+        targetRevision: "{{.branch}}"
         path: "{{.path}}"
       destination:
         server: "https://kubernetes.default.svc"
-        namespace: "{{.namespace}}"
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
+        namespace: "default" # Adjust namespace if needed
+
+
+
+
+
+
+
+
+
+# apiVersion: argoproj.io/v1alpha1
+# kind: ApplicationSet
+# metadata:
+#   name: git-appset-jsonpath
+#   namespace: argocd
+#   labels:
+#     argocd.argoproj.io/instance: sample-app
+# spec:
+#   generators:
+#     - git:
+#         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
+#         revision: "new-test"
+#         files:
+#           - path: "source-apps/config.json"
+#         jsonnet:
+#           extVars:
+#             - name: NAMESPACE
+#               value: "default"
+#           expr: |
+#             local config = import 'source-apps/config.json';
+#             [
+#               {
+#                 name: config.app1.name,
+#                 repoURL: config.app1.repoURL,
+#                 path: config.app1.path,
+#                 targetRevision: config.app1.targetRevision,
+#                 namespace: config.app1.namespace
+#               },
+#               {
+#                 name: config["git-source"].name,
+#                 repoURL: config["git-source"].repoURL,
+#                 path: config["git-source"].path,
+#                 targetRevision: config["git-source"].targetRevision,
+#                 namespace: config["git-source"].namespace
+#               }
+#             ]
+#   template:
+#     metadata:
+#       name: "{{.name}}"
+#     spec:
+#       project: "default"
+#       source:
+#         repoURL: "{{.repoURL}}"
+#         targetRevision: "{{.targetRevision}}"
+#         path: "{{.path}}"
+#       destination:
+#         server: "https://kubernetes.default.svc"
+#         namespace: "{{.namespace}}"
+#       syncPolicy:
+#         automated:
+#           prune: true
+#           selfHeal: true
