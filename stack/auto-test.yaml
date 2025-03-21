@@ -16,16 +16,16 @@ spec:
 
   template:
     metadata:
-      name: "{{.name}}"  # Using 'name' from the config
+      name: "{{name}}"
     spec:
       project: "default"
       source:
-        repoURL: "{{.repoURL}}"  # 'repoURL' extracted from the config
-        targetRevision: "{{.targetRevision}}"  # 'targetRevision' extracted from the config
-        path: "{{path}}"  # 'path' extracted from the config
+        repoURL: "{{repoURL}}"
+        targetRevision: "{{targetRevision}}"
+        path: "{{path}}"
       destination:
         server: "https://kubernetes.default.svc"
-        namespace: "{{.namespace}}"  # 'namespace' extracted from the config
+        namespace: "{{namespace}}"
       syncPolicy:
         automated:
           prune: true
