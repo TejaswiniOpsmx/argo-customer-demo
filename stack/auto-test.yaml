@@ -18,26 +18,25 @@ spec:
               value: "default"
           expr: |
             local config = import 'source-apps/config.json';
-            local normalizeName(name) = std.strReplace(std.lower(name), '[^a-z0-9-]+', '-');
             [
               {
-                name: normalizeName(config.app1.name),
+                name: config.app1.name,
                 repoURL: config.app1.repoURL,
                 path: config.app1.path,
                 targetRevision: config.app1.targetRevision,
-                namespace: std.extVar("NAMESPACE")
+                namespace: config.app1.namespace
               },
               {
-                name: normalizeName(config["git-source"].name),
+                name: config["git-source"].name,
                 repoURL: config["git-source"].repoURL,
                 path: config["git-source"].path,
                 targetRevision: config["git-source"].targetRevision,
-                namespace: std.extVar("NAMESPACE")
+                namespace: config["git-source"].namespace
               }
             ]
   template:
     metadata:
-      name: "{{ normalizeName(.name) }}"
+      name: "{{.name}}"
     spec:
       project: "default"
       source:
