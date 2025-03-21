@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: cluster-addons
+  name: git-appset-jsonpath
   namespace: argocd
   labels:
     argocd.argoproj.io/instance: sample-app
