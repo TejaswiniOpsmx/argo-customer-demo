@@ -1,11 +1,11 @@
 [
   {
-    "base_dir": "source-apps/application-set/generators,
+    "base_dir": "source-apps/application-set/generators",
     "name": "app1",
     "namespace": "default"
   },
   {
-    "base_dir": "source-apps/application-set/generators,
+    "base_dir": "source-apps/application-set/generators",
     "name": "app2",
     "namespace": "default"
   }
