@@ -12,6 +12,7 @@ spec:
         revision: "new-test"
         files:
           - path: "source-apps/config.json/*"
+        jsonPath: "{{config.json.applications}}"  
          # Corrected: JSONPath for extracting the applications array from the config.json file
 
   template:
