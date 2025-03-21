@@ -14,9 +14,11 @@ spec:
         revision: "new-test"
         files:
           - path: "source-apps/config.json"
+        values:
+          base_dir: "source-apps/*"
   template:
     metadata:
-      name: "{{.name}}"
+      name: "{{.base_dir.name}}"
     spec:
       project: "default"
       source:
