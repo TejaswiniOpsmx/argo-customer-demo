@@ -18,7 +18,7 @@ spec:
           base_dir: "source-apps/*"
   template:
     metadata:
-      name: "{{.base_dir.name}}"
+      name: "{{.base_dir}}" 
     spec:
       project: "default"
       source:
