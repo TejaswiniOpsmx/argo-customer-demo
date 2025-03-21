@@ -17,7 +17,7 @@ spec:
 
   template:
     metadata:
-      name: '{{ .path.basename }}-{{index .path.segments 1}}'
+      name: "{{.name}}"
     spec:
       project: default
       source:
