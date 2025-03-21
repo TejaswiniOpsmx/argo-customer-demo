@@ -20,12 +20,12 @@ spec:
     spec:
       project: "default"
       source:
-        repoURL: "{{.repoURL}}"  # This assumes 'repoURL' is in your config.json
-        targetRevision: "{{.targetRevision}}"
-        path: "{{.path}}"
+        repoURL: "{{repoURL}}"  # This assumes 'repoURL' is in your config.json
+        targetRevision: "{{targetRevision}}"
+        path: "{{path}}"
       destination:
         server: "https://kubernetes.default.svc"
-        namespace: "{{.namespace}}"
+        namespace: "{{namespace}}"
       syncPolicy:
         automated:
           prune: true
