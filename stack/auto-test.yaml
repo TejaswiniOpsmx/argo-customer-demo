@@ -6,21 +6,41 @@ metadata:
   labels:
     argocd.argoproj.io/instance: sample-app
 spec:
-  goTemplate: true
-  goTemplateOptions: ["missingkey=error"]
   generators:
     - git:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         revision: "new-test"
         files:
           - path: "source-apps/config.json"
+        jsonnet:
+          extVars:
+            - name: NAMESPACE
+              value: "default"
+          expr: |
+            local config = import 'source-apps/config.json';
+            [
+              {
+                name: config.app1.name,
+                repoURL: config.app1.repoURL,
+                path: config.app1.path,
+                targetRevision: config.app1.targetRevision,
+                namespace: std.extVar("NAMESPACE")
+              },
+              {
+                name: config["git-source"].name,
+                repoURL: config["git-source"].repoURL,
+                path: config["git-source"].path,
+                targetRevision: config["git-source"].targetRevision,
+                namespace: std.extVar("NAMESPACE")
+              }
+            ]
   template:
     metadata:
-      name: "{{.name}}"  # Assuming 'name' is part of your config.json
+      name: "{{.name}}"
     spec:
       project: "default"
       source:
-        repoURL: "{{.repoURL}}"  # This assumes 'repoURL' is in your config.json
+        repoURL: "{{.repoURL}}"
         targetRevision: "{{.targetRevision}}"
         path: "{{.path}}"
       destination:
