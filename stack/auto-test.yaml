@@ -2,26 +2,30 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: git-appset-jsonpath
+  namespace: default
+  labels:
+    argocd.argoproj.io/instance: sample-app
 spec:
   generators:
-  - git:
-      repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
-      revision: "new-test"
-      files:
-      - path: "source-apps/config.json"  # Reading from config.json in the repo
-      jsonPath: "{{.applications}}"
+    - git:
+        repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
+        revision: "new-test"
+        files:
+          - path: "source-apps/config.json"
+        jsonPath: "{{.applications}}"  # Corrected: JSONPath for extracting the applications array from the config.json file
+
   template:
     metadata:
-      name: "{{name}}"
+      name: "{{name}}"  # Using 'name' from the config
     spec:
       project: "default"
       source:
-        repoURL: "{{repoURL}}"
-        targetRevision: "{{targetRevision}}"
-        path: "{{path}}"
+        repoURL: "{{repoURL}}"  # 'repoURL' extracted from the config
+        targetRevision: "{{targetRevision}}"  # 'targetRevision' extracted from the config
+        path: "{{path}}"  # 'path' extracted from the config
       destination:
         server: "https://kubernetes.default.svc"
-        namespace: "{{namespace}}"
+        namespace: "{{namespace}}"  # 'namespace' extracted from the config
       syncPolicy:
         automated:
           prune: true
