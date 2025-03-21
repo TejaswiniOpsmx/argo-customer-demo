@@ -1,5 +1,4 @@
-{
-  "applications": [
+
     {
       "name": "generators",
       "namespace": "default",
@@ -13,8 +12,7 @@
       "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
       "path": "source-apps/application-set/new-progressive-syncs",
       "targetRevision": "new-test"
-    }
-  ]
+ 
 }
 
 
