@@ -10,7 +10,7 @@ spec:
       repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git" # Replace with your config repo URL
       revision: "HEAD" # or specific branch/tag
       files:
-      - path: "source-apps/**/config.json" # Adjust the path to match your config.json locations
+      - path: "source-apps/config.json" # Adjust the path to match your config.json locations
   template:
     metadata:
       name: "{{path.basenameNormalized}}-app"
