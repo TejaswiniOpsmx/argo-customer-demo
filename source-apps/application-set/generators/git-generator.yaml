@@ -13,7 +13,7 @@ spec:
           - path: "source-data/application-set-data/git-data/*"
   template:
     metadata:
-      name: '{{path.basename}}'
+      name: '{{name}}'
       labels:
          for: jpmc
     spec:
