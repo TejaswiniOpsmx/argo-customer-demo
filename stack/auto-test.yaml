@@ -36,7 +36,7 @@ spec:
             ]
   template:
     metadata:
-      name: "{{.path.name}}"
+      name: "{{name}}"
     spec:
       project: "default"
       source:
