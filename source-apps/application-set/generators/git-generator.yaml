@@ -7,8 +7,8 @@ metadata:
 spec:
   generators:
     - git:                 
-        repoURL: "https://github.com/OpsMx/argo-customer-demo.git"
-        revision: "testcase"
+        repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
+        revision: "new-test"
         directories:
           - path: "source-data/application-set-data/git-data/*"
   template:
@@ -19,12 +19,12 @@ spec:
     spec:
       project: default
       source:
-        repoURL: "https://github.com/OpsMx/argo-customer-demo.git"
-        targetRevision: "testcase"
+        repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
+        targetRevision: "new-test"
         path: '{{path}}'
       destination:
         server: "https://kubernetes.default.svc"
-        namespace: 'argocd-kt'
+        namespace: 'default'
       syncPolicy:
         automated:
           prune: true
