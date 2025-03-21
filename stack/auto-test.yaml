@@ -37,7 +37,7 @@ spec:
             ]
   template:
     metadata:
-      name: "{{.name}}"
+      name: "{{ normalizeName(.name) }}"
     spec:
       project: "default"
       source:
