@@ -4,6 +4,7 @@
     "path": "source-apps/application-set/generators/git-generator.yaml",
     "name": "app1",
     "namespace": "default",
+    "base_dir": "source-apps/*",
     "targetRevision": "new-test"
   },
   {
