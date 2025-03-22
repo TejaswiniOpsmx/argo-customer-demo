@@ -10,13 +10,13 @@ spec:
     namespace: argocd-kt
     server: 'https://kubernetes.default.svc'
   sources:
-    - repoURL: 'https://github.com/OpsMx/argo-customer-demo.git'
+    - repoURL: 'https://github.com/TejaswiniOpsmx/argo-customer-demo'
       path: datas/helm/dubble-helm/helm1
       targetRevision: test
       helm:
         valueFiles:
           - values.yaml
-    - repoURL: 'https://github.com/OpsMx/argo-customer-demo.git'
+    - repoURL: 'https://github.com/TejaswiniOpsmx/argo-customer-demo'
       path: source-data/helm/dubble-helm/helm2
       targetRevision: testcase
       helm:
