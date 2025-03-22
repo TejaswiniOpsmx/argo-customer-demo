@@ -1,23 +1,20 @@
-[
-  {
-    "name": "myapp1",
+{
+  "myapp1": {
     "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
     "targetRevision": "new-test",
     "path": "source-apps/applications/helm-source/*",
     "namespace": "test1"
   },
-  {
-    "name": "myapp2",
+  "myapp2": {
     "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
     "targetRevision": "new-test",
     "path": "source-apps/applications/helm-source",
     "namespace": "test2"
   },
-  {
-    "name": "myapp3",
+  "myapp3": {
     "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
     "targetRevision": "new-test",
     "path": "source-apps/applications/helm-source",
     "namespace": "test3"
   }
-]
+}
