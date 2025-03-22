@@ -8,8 +8,7 @@ spec:
     - git:
         repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
         revision: new-test
-        files:
-          - path: source-apps/config.json
+        path: source-apps/config.json
       jsonpath:
         expressions:
           - expression: '[*]'  # Iterates over all items in the config.json array
