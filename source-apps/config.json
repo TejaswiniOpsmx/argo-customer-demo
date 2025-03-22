@@ -1,28 +1,23 @@
-{
-  "applications": [
-    {
-      "name": "myapp1",
-      "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
-      "targetRevision": "new-test",
-      "path": "source-apps/applications/helm-source/*",
-      "server": "https://kubernetes.default.svc",  # Ensure the correct server URL is here
-      "namespace": "test1"
-    },
-    {
-      "name": "myapp2",
-      "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
-      "targetRevision": "new-test",
-      "path": "source-apps/applications/helm-source",
-      "server": "https://kubernetes.default.svc",  # Same here
-      "namespace": "test2"
-    },
-    {
-      "name": "myapp3",
-      "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
-      "targetRevision": "new-test",
-      "path": "source-apps/applications/helm-source",
-      "server": "https://kubernetes.default.svc",  # And here
-      "namespace": "test3"
-    }
-  ]
-}
+
+  {
+    "name": "myapp1",
+    "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
+    "targetRevision": "new-test",
+    "path": "source-apps/applications/helm-source/*",
+    "namespace": "test1"
+  },
+  {
+    "name": "myapp2",
+    "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
+    "targetRevision": "new-test",
+    "path": "source-apps/applications/helm-source",
+    "namespace": "test2"
+  },
+  {
+    "name": "myapp3",
+    "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
+    "targetRevision": "new-test",
+    "path": "source-apps/applications/helm-source",
+    "namespace": "test3"
+  }
+
