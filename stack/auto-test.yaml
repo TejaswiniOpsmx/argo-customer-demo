@@ -1,28 +1,73 @@
-# applicationset.yaml (Git Generator)
+
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: git-appset-jsonpath
   namespace: argocd
+  labels:
+    argocd.argoproj.io/instance: sample-app
 spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
   generators:
-  - git:
-      repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git" # Replace with your config repo URL
-      revision: "HEAD" # or specific branch/tag
-      files:
-      - path: "source-apps/config.json" # Adjust the path to match your config.json locations
+    - git:
+        repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
+        revision: "new-test"
+        files:
+          - path: "source-apps/config.json"
   template:
     metadata:
-      name: "{{path.basenameNormalized}}-app"
+      name: "{{.name}}"  # Assuming 'name' is part of your config.json
     spec:
-      project: "default" # Adjust project if needed
+      project: "default"
       source:
-        repoURL: "{{.repo}}"
-        targetRevision: "{{.branch}}"
+        repoURL: "{{.repoURL}}"  # This assumes 'repoURL' is in your config.json
+        targetRevision: "{{.targetRevision}}"
         path: "{{.path}}"
       destination:
         server: "https://kubernetes.default.svc"
-        namespace: "default" # Adjust namespace if needed
+        namespace: "{{.namespace}}"
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+
+
+
+
+
+
+
+
+
+
+
+
+# # applicationset.yaml (Git Generator)
+# apiVersion: argoproj.io/v1alpha1
+# kind: ApplicationSet
+# metadata:
+#   name: git-appset-jsonpath
+#   namespace: argocd
+# spec:
+#   generators:
+#   - git:
+#       repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git" # Replace with your config repo URL
+#       revision: "HEAD" # or specific branch/tag
+#       files:
+#       - path: "source-apps/config.json" # Adjust the path to match your config.json locations
+#   template:
+#     metadata:
+#       name: "{{path.basenameNormalized}}-app"
+#     spec:
+#       project: "default" # Adjust project if needed
+#       source:
+#         repoURL: "{{.repo}}"
+#         targetRevision: "{{.branch}}"
+#         path: "{{.path}}"
+#       destination:
+#         server: "https://kubernetes.default.svc"
+#         namespace: "default" # Adjust namespace if needed
 
 
 
