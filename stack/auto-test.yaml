@@ -1,35 +1,81 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: git-appset-jsonpath
-  namespace: argocd
-  labels:
-    argocd.argoproj.io/instance: sample-app
+  name: my-applicationset
+  namespace: argocd # Ensure this namespace matches your Argo CD installation
 spec:
-  goTemplate: true
-  goTemplateOptions: ["missingkey=error"]
   generators:
-    - git:
-        repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
-        revision: "new-test"
-        files:
-          - path: "source-apps/Config.json"
+  - jsonnet:
+      jsonnet: |
+        local config = import 'config.json';
+
+        [
+          {
+            name: item.name,
+            cluster: item.cluster,
+            repoURL: item.repoURL,
+            targetRevision: item.targetRevision,
+            path: item.path,
+            values: item.values
+          }
+          for item in config.applications
+        ]
   template:
     metadata:
-      name: "{{.name}}"
+      name: '{{name}}-app'
     spec:
-      project: "default"
+      project: default # Replace with your Argo CD project
       source:
-        repoURL: "{{.repoURL}}"
-        targetRevision: "{{.targetRevision}}"
-        path: "{{.path}}"
+        repoURL: '{{repoURL}}'
+        targetRevision: '{{targetRevision}}'
+        path: '{{path}}'
+        helm:
+          values: '{{values}}'
       destination:
-        server: "https://kubernetes.default.svc"
-        namespace: "{{.namespace}}"
+        server: '{{cluster}}'
+        namespace: default # Replace with your target namespace
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
+
+
+
+
+# apiVersion: argoproj.io/v1alpha1
+# kind: ApplicationSet
+# metadata:
+#   name: git-appset-jsonpath
+#   namespace: argocd
+#   labels:
+#     argocd.argoproj.io/instance: sample-app
+# spec:
+#   goTemplate: true
+#   goTemplateOptions: ["missingkey=error"]
+#   generators:
+#     - git:
+#         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
+#         revision: "new-test"
+#         files:
+#           - path: "source-apps/Config.json"
+#   template:
+#     metadata:
+#       name: "{{.name}}"
+#     spec:
+#       project: "default"
+#       source:
+#         repoURL: "{{.repoURL}}"
+#         targetRevision: "{{.targetRevision}}"
+#         path: "{{.path}}"
+#       destination:
+#         server: "https://kubernetes.default.svc"
+#         namespace: "{{.namespace}}"
+#       syncPolicy:
+#         automated:
+#           prune: true
+#           selfHeal: true
 
 
 
