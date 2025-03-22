@@ -7,7 +7,7 @@
       "kind": "Application",
       "metadata": {
         "name": "myapp1",
-        "namespace": "test1"
+        "namespace": "default"
       },
       "spec": {
         "project": "default",
@@ -34,7 +34,7 @@
         "source": {
           "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
           "targetRevision": "new-test",
-          "path": "source-apps/applications/helm-source"
+          "path": "source-apps/application-set/generators"
         },
         "destination": {
           "server": "https://kubernetes.default.svc",
@@ -54,7 +54,7 @@
         "source": {
           "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
           "targetRevision": "new-test",
-          "path": "source-apps/applications/helm-source"
+          "path": "source-apps/application-set/progressive-syncs"
         },
         "destination": {
           "server": "https://kubernetes.default.svc",
