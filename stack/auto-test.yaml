@@ -9,7 +9,7 @@ spec:
         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         revision: "new-test"
         files:
-          - path: "source-apps/config.json"  # Path to the config.json file in the repository
+          - path: "source-apps/*.json"  # Path to the config.json file in the repository
       jsonpath:
         expressions:
           - expression: '[*]'  # Iterate over all items in the JSON array
