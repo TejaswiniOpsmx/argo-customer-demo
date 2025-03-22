@@ -1,14 +1,14 @@
-// config/myapp1/config.json
 {
-  "repo": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
-  "path": "source-apps/application-set/generators",
-  "branch": "new-test"
+      "name": "generators",
+      "namespace": "default",
+      "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
+      "path": "source-apps/application-set/generators",
+      "targetRevision": "new-test"
+    },
+    {
+      "name": "app2",
+      "namespace": "default",
+      "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
+      "path": "source-apps/application-set/new-progressive-syncs",
+      "targetRevision": "new-test"
 }
-
-// config/myapp2/config.json
-{
-  "repo": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
-  "path": "source-apps/application-set/generators",
-  "branch": "new-test"
-}
-
