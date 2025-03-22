@@ -10,7 +10,7 @@
     "name": "git-source-deployment",
     "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
     "targetRevision": "new-test",
-    "path": "source-apps/applications/git-source,
+    "path": "source-apps/applications/git-source",
     "namespace": "default"
   }
 }
