@@ -10,7 +10,7 @@ spec:
     namespace: argocd-kt
     server: 'https://kubernetes.default.svc'
   source:
-    repoURL: 'https://github.com/OpsMx/argo-customer-demo.git'
+    repoURL: 'https://github.com/TejaswiniOpsmx/argo-customer-demo.git'
     path: source-data/helm/single-helm
     targetRevision: testcase
     helm:
