@@ -6,12 +6,12 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
-        revision: new-test
-        path: source-apps/config.json  # Reference to the config.json file
+        repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
+        revision: "new-test"
+        path: "source-apps/config.json"  # Path to the config.json file in the repository
       jsonpath:
         expressions:
-          - expression: '[*]'  # Iterate over all items in the config.json array
+          - expression: '[*]'  # Iterate over all items in the JSON array
   template:
     metadata:
       name: '{{name}}'  # Interpolating the 'name' from the JSON object
@@ -24,6 +24,7 @@ spec:
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'  # Interpolating 'namespace' from the JSON object
+
 
 
 
