@@ -1,45 +1,39 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: git-appset-jsonpath
+  name: my-git-applicationset
   namespace: argocd # Ensure this namespace matches your Argo CD installation
 spec:
   generators:
-  - jsonnet:
-      jsonnet: |
-        local config = import 'config.json';
-
-        [
-          {
-            name: item.name,
-            cluster: item.cluster,
-            repoURL: item.repoURL,
-            targetRevision: item.targetRevision,
-            path: item.path,
-            values: item.values
-          }
-          for item in config.applications
-        ]
+  - git:
+      repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git" # Replace with your Git repository URL
+      revision: "new-test" # Or a specific branch/tag
+      files:
+      - path: "source-apps/config.json" # Path to your config.json file in the repository
+      template:
+        metadata:
+          name: "{{.name}}-app" # Template for application name
+        spec:
+          project: "default" # Argo CD project
+          source:
+            repoURL: "{{.repoURL}}" # Repository URL from config.json
+            targetRevision: "{{.targetRevision}}" # Target revision from config.json
+            path: "{{.path}}" # Path to application manifests from config.json
+          destination:
+            server: "https://kubernetes.default.svc" # Kubernetes cluster API server
+            namespace: "{{.namespace}}" # Namespace from config.json
   template:
     metadata:
-      name: '{{name}}-app'
+      name: "{{}}" # This will be replaced by the generator
     spec:
-      project: default # Replace with your Argo CD project
+      project: "{{}}"
       source:
-        repoURL: '{{repoURL}}'
-        targetRevision: '{{targetRevision}}'
-        path: '{{path}}'
-        helm:
-          values: '{{values}}'
+        repoURL: "{{}}"
+        targetRevision: "{{}}"
+        path: "{{}}"
       destination:
-        server: '{{cluster}}'
-        namespace: default # Replace with your target namespace
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
-        syncOptions:
-        - CreateNamespace=true
+        server: "{{}}"
+        namespace: "{{}}"
 
 
 
