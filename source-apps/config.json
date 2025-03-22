@@ -1,4 +1,4 @@
-[
+
   {
     "name": "myapp1",
     "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
@@ -21,4 +21,3 @@
     "path": "source-apps/applications/helm-source",
     "namespace": "test3"
   }
-]
