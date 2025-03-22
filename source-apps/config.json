@@ -1,62 +1,66 @@
 {
-  "myapp1": {
-    "apiVersion": "argoproj.io/v1alpha1",
-    "kind": "Application",
-    "metadata": {
-      "name": "myapp1",
-      "namespace": "test1"
-    },
-    "spec": {
-      "project": "default",
-      "source": {
-        "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
-        "targetRevision": "new-test",
-        "path": "source-apps/applications/helm-source/*"
-      },
-      "destination": {
-        "server": "https://kubernetes.default.svc",
+  "apiVersion": "v1",
+  "kind": "List",
+  "items": [
+    {
+      "apiVersion": "argoproj.io/v1alpha1",
+      "kind": "Application",
+      "metadata": {
+        "name": "myapp1",
         "namespace": "test1"
-      }
-    }
-  },
-  "myapp2": {
-    "apiVersion": "argoproj.io/v1alpha1",
-    "kind": "Application",
-    "metadata": {
-      "name": "myapp2",
-      "namespace": "test2"
-    },
-    "spec": {
-      "project": "default",
-      "source": {
-        "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
-        "targetRevision": "new-test",
-        "path": "source-apps/applications/helm-source"
       },
-      "destination": {
-        "server": "https://kubernetes.default.svc",
+      "spec": {
+        "project": "default",
+        "source": {
+          "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
+          "targetRevision": "new-test",
+          "path": "source-apps/applications/helm-source/*"
+        },
+        "destination": {
+          "server": "https://kubernetes.default.svc",
+          "namespace": "test1"
+        }
+      }
+    },
+    {
+      "apiVersion": "argoproj.io/v1alpha1",
+      "kind": "Application",
+      "metadata": {
+        "name": "myapp2",
         "namespace": "test2"
-      }
-    }
-  },
-  "myapp3": {
-    "apiVersion": "argoproj.io/v1alpha1",
-    "kind": "Application",
-    "metadata": {
-      "name": "myapp3",
-      "namespace": "test3"
-    },
-    "spec": {
-      "project": "default",
-      "source": {
-        "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
-        "targetRevision": "new-test",
-        "path": "source-apps/applications/helm-source"
       },
-      "destination": {
-        "server": "https://kubernetes.default.svc",
+      "spec": {
+        "project": "default",
+        "source": {
+          "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
+          "targetRevision": "new-test",
+          "path": "source-apps/applications/helm-source"
+        },
+        "destination": {
+          "server": "https://kubernetes.default.svc",
+          "namespace": "test2"
+        }
+      }
+    },
+    {
+      "apiVersion": "argoproj.io/v1alpha1",
+      "kind": "Application",
+      "metadata": {
+        "name": "myapp3",
         "namespace": "test3"
+      },
+      "spec": {
+        "project": "default",
+        "source": {
+          "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
+          "targetRevision": "new-test",
+          "path": "source-apps/applications/helm-source"
+        },
+        "destination": {
+          "server": "https://kubernetes.default.svc",
+          "namespace": "test3"
+        }
       }
     }
-  }
+  ]
 }
