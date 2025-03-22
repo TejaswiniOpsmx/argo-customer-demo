@@ -27,7 +27,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: "https://github.com/OpsMx/argo-customer-demo.git"
+        repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
         path: source-data/multicm-plugin-helm
         targetRevision: testcase
       destination:
