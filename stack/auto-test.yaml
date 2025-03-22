@@ -15,7 +15,7 @@ spec:
           - expression: '[*]'  # Iterate over all items in the JSON array
   template:
     metadata:
-      name: '{{name}}'  # Interpolating the 'name' from the JSON object
+      name: '{{.name}}'  # Interpolating the 'name' from the JSON object
     spec:
       project: default
       source:
