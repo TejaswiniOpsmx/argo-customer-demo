@@ -1,6 +1,6 @@
 // config/myapp1/config.json
 {
-  "repo": "https://your-git-app-repo.com/your-org/myapp1.git",
+  "repo": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
   "path": "source-apps/application-set/generators",
   "branch": "new-test"
 }
