@@ -12,23 +12,24 @@ spec:
           - path: source-apps/config.json
       jsonpath:
         expressions:
-          - expression: '[*]'
+          - expression: '[*]'  # Iterates over all items in the config.json array
         sourceRef:
           repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
           targetRevision: new-test
           path: source-apps/config.json
   template:
     metadata:
-      name: {{.name}}
+      name: '{{name}}'  # Interpolating name field from the JSON
     spec:
       project: default
       source:
-        repoURL: '{{.repoURL}}'
-        targetRevision: '{{.targetRevision}}'
-        path: '{{.path}}'
+        repoURL: '{{repoURL}}'  # Interpolating repoURL field from the JSON
+        targetRevision: '{{targetRevision}}'  # Interpolating targetRevision field from the JSON
+        path: '{{path}}'  # Interpolating path field from the JSON
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{.namespace}}'
+        namespace: '{{namespace}}'  # Interpolating namespace field from the JSON
+
 
 
 
