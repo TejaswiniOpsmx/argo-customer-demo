@@ -27,7 +27,7 @@ spec:
         targetRevision: '{{targetRevision}}'  # Interpolating targetRevision field from the JSON
         path: '{{path}}'  # Interpolating path field from the JSON
       destination:
-        server: "{{server}}"
+        server: "https://kubernetes.default.svc"
         namespace: '{{namespace}}'  # Interpolating namespace field from the JSON
 
 
