@@ -8,27 +8,23 @@ spec:
     - git:
         repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
         revision: new-test
-        files:
-          - path: source-apps/config.json
+        path: source-apps/config.json  # Reference to the config.json file
       jsonpath:
         expressions:
-           - expression: $.applications[*] # Iterates over all items in the config.json array
-        sourceRef:
-          repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
-          targetRevision: new-test
-          path: source-apps/config.json
+          - expression: '[*]'  # Iterate over all items in the config.json array
   template:
     metadata:
-      name: '{{.expression.name}}'  # Interpolating name field from the JSON
+      name: '{{name}}'  # Interpolating the 'name' from the JSON object
     spec:
       project: default
       source:
-        repoURL: '{{.repoURL}}'  # Interpolating repoURL field from the JSON
-        targetRevision: '{{targetRevision}}'  # Interpolating targetRevision field from the JSON
-        path: '{{.path}}'  # Interpolating path field from the JSON
+        repoURL: '{{repoURL}}'  # Interpolating the 'repoURL' from the JSON object
+        targetRevision: '{{targetRevision}}'  # Interpolating 'targetRevision' from the JSON object
+        path: '{{path}}'  # Interpolating 'path' from the JSON object
       destination:
-        server: "https://kubernetes.default.svc"
-        namespace: '{{.namespace}}'  # Interpolating namespace field from the JSON
+        server: https://kubernetes.default.svc
+        namespace: '{{namespace}}'  # Interpolating 'namespace' from the JSON object
+
 
 
 
