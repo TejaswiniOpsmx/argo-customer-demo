@@ -1,4 +1,3 @@
-
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
@@ -17,11 +16,11 @@ spec:
           - path: "source-apps/config.json"
   template:
     metadata:
-      name: "{{.name}}"  # Assuming 'name' is part of your config.json
+      name: "{{.name}}"
     spec:
       project: "default"
       source:
-        repoURL: "{{.repoURL}}"  # This assumes 'repoURL' is in your config.json
+        repoURL: "{{.repoURL}}"
         targetRevision: "{{.targetRevision}}"
         path: "{{.path}}"
       destination:
