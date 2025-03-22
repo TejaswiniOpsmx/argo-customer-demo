@@ -2,15 +2,15 @@
   "app1": {
     "name": "app1-deployment",
     "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
-    "targetRevision": "main",
-    "path": "applications/app1",
-    "namespace": "app1-namespace"
+    "targetRevision": "new-test",
+    "path": "source-apps/applications/git-source",
+    "namespace": "default"
   },
   "git-source": {
     "name": "git-source-deployment",
     "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
-    "targetRevision": "main",
-    "path": "applications/git-source",
-    "namespace": "git-source-namespace"
+    "targetRevision": "new-test",
+    "path": "source-apps/applications/git-source,
+    "namespace": "default"
   }
 }
