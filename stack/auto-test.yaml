@@ -12,7 +12,7 @@ spec:
           - path: source-apps/config.json
       jsonpath:
         expressions:
-          - expression: '[*]'  # Iterates over all items in the config.json array
+           - expression: $.applications[*] # Iterates over all items in the config.json array
         sourceRef:
           repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
           targetRevision: new-test
