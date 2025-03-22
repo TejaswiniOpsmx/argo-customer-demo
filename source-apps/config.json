@@ -18,7 +18,7 @@
         },
         "destination": {
           "server": "https://kubernetes.default.svc",
-          "namespace": "test1"
+          "namespace": "default"
         }
       }
     },
