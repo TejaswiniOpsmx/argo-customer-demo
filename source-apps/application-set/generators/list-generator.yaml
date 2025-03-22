@@ -8,11 +8,11 @@ spec:
     - list:
         elements:
           - name: list-application-set-app1
-            repoURL: https://github.com/OpsMx/argo-customer-demo.git          #pod
+            repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git         #pod
             targetRevision: testcase
             path: source-data/application-set-data/list-data/app1
           - name: list-application-set-app2
-            repoURL: https://github.com/OpsMx/argo-customer-demo.git           #service
+            repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git           #service
             targetRevision: testcase
             path: source-data/application-set-data/list-data/app2
   template:
