@@ -5,24 +5,30 @@ metadata:
   namespace: argocd
 spec:
   generators:
-  - git:
-      repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
-      revision: new-test
-      directories:
-      - path: source-apps/config.json
-        exclude: true
+    - git:
+        repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
+        revision: new-test
+        files:
+          - path: source-apps/config.json
+      jsonpath:
+        expressions:
+          - expression: '[*]'
+        sourceRef:
+          repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
+          targetRevision: new-test
+          path: source-apps/config.json
   template:
     metadata:
-      name: '{{path.basename}}'
+      name: '{{.name}}'
     spec:
       project: default
       source:
-        repoURL: https://github.com/argoproj/applicationset.git
-        targetRevision: HEAD
-        path: '{{path}}'
+        repoURL: '{{.repoURL}}'
+        targetRevision: '{{.targetRevision}}'
+        path: '{{.path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{path.basename}}'
+        namespace: '{{.namespace}}'
 
 
 
