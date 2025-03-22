@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: my-git-applicationset
+  name: git-appset-jsonpath
   namespace: argocd # Ensure this namespace matches your Argo CD installation
 spec:
   generators:
