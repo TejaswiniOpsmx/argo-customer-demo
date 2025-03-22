@@ -2,38 +2,67 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: git-appset-jsonpath
-  namespace: argocd # Ensure this namespace matches your Argo CD installation
+  namespace: argocd
 spec:
   generators:
   - git:
-      repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git" # Replace with your Git repository URL
-      revision: "new-test" # Or a specific branch/tag
-      files:
-      - path: "source-apps/config.json" # Path to your config.json file in the repository
-      template:
-        metadata:
-          name: "{{.name}}" # Template for application name
-        spec:
-          project: "default" # Argo CD project
-          source:
-            repoURL: "{{.repoURL}}" # Repository URL from config.json
-            targetRevision: "{{.targetRevision}}" # Target revision from config.json
-            path: "{{.path}}" # Path to application manifests from config.json
-          destination:
-            server: "https://kubernetes.default.svc" # Kubernetes cluster API server
-            namespace: "{{.namespace}}" # Namespace from config.json
+      repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
+      revision: new-test
+      directories:
+      - path: source-apps/config.json
+        exclude: true
   template:
     metadata:
-      name: "{{}}" # This will be replaced by the generator
+      name: '{{path.basename}}'
     spec:
-      project: "{{}}"
+      project: default
       source:
-        repoURL: "{{}}"
-        targetRevision: "{{}}"
-        path: "{{}}"
+        repoURL: https://github.com/argoproj/applicationset.git
+        targetRevision: HEAD
+        path: '{{path}}'
       destination:
-        server: "{{}}"
-        namespace: "{{}}"
+        server: https://kubernetes.default.svc
+        namespace: '{{path.basename}}'
+
+
+
+
+# apiVersion: argoproj.io/v1alpha1
+# kind: ApplicationSet
+# metadata:
+#   name: git-appset-jsonpath
+#   namespace: argocd # Ensure this namespace matches your Argo CD installation
+# spec:
+#   generators:
+#   - git:
+#       repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git" # Replace with your Git repository URL
+#       revision: "new-test" # Or a specific branch/tag
+#       files:
+#       - path: "source-apps/config.json" # Path to your config.json file in the repository
+#       template:
+#         metadata:
+#           name: "{{.name}}" # Template for application name
+#         spec:
+#           project: "default" # Argo CD project
+#           source:
+#             repoURL: "{{.repoURL}}" # Repository URL from config.json
+#             targetRevision: "{{.targetRevision}}" # Target revision from config.json
+#             path: "{{.path}}" # Path to application manifests from config.json
+#           destination:
+#             server: "https://kubernetes.default.svc" # Kubernetes cluster API server
+#             namespace: "{{.namespace}}" # Namespace from config.json
+#   template:
+#     metadata:
+#       name: "{{}}" # This will be replaced by the generator
+#     spec:
+#       project: "{{}}"
+#       source:
+#         repoURL: "{{}}"
+#         targetRevision: "{{}}"
+#         path: "{{}}"
+#       destination:
+#         server: "{{}}"
+#         namespace: "{{}}"
 
 
 
