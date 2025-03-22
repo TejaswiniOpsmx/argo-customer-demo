@@ -1,11 +1,11 @@
 {
-
+  "applications": [
     {
       "name": "myapp1",
       "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
       "targetRevision": "new-test",
       "path": "source-apps/applications/helm-source/*",
-      "server": "https://kubernetes.default.svc",
+      "server": "https://kubernetes.default.svc",  # Ensure the correct server URL is here
       "namespace": "test1"
     },
     {
@@ -13,7 +13,7 @@
       "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
       "targetRevision": "new-test",
       "path": "source-apps/applications/helm-source",
-      "server": "https://kubernetes.default.svc",
+      "server": "https://kubernetes.default.svc",  # Same here
       "namespace": "test2"
     },
     {
@@ -21,8 +21,8 @@
       "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
       "targetRevision": "new-test",
       "path": "source-apps/applications/helm-source",
-      "server": "https://kubernetes.default.svc",
+      "server": "https://kubernetes.default.svc",  # And here
       "namespace": "test3"
     }
-  
+  ]
 }
