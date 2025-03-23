@@ -3,7 +3,7 @@
     "clusterName": "myapp1",
     "clusterAddress": "https://kubernetes.default.svc",
     "namespace": "default",
-    "appPath": "source-apps/applications"
+    "appPath": "source-apps/applications/appset-automated-sync"
   },
   {
     "clusterName": "myapp2",
