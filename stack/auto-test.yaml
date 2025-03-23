@@ -7,7 +7,7 @@ spec:
   generators:
   - git:
       repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git # Replace with your Git repo URL
-      revision: HEAD
+      revision: new-test
       files:
       - path: "source-apps/*.json"
   template:
