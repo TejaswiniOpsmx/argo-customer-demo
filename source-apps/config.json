@@ -3,7 +3,7 @@
     "clusterName": "myapp1",
     "clusterAddress": "https://kubernetes.default.svc",
     "namespace": "default",
-    "appPath": "source-apps/application-set/generators"
+    "appPath": "source-apps/applications"
   },
   {
     "clusterName": "myapp2",
