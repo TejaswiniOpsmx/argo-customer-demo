@@ -2,40 +2,31 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: git-appset-jsonpath
-  namespace: argocd
+  namespace: argocd # Ensure this is the Argo CD namespace
 spec:
   generators:
   - git:
-      repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
-      revision: new-test
+      repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git # Replace with your Git repo URL
+      revision: HEAD
       files:
-        - path: source-apps/config.json  # Path to config.json file in the repository
-      jsonpath:
-        expressions:
-          - expression: '[*]'  # Iterate over all items in the JSON array from config.json
+      - path: "source-apps/*.json"
   template:
     metadata:
-      name: '{{ lower .name }}-{{ lower .carbon-ns }}'
+      name: '{{clusterName}}-guestbook'
+      namespace: default # Ensure this is the Argo CD namespace
     spec:
-      destination:
-        namespace: '{{ carbon-ns }}'
-        server: https://kubernetes.default.svc
       project: default
-      revisionHistoryLimit: 1
-      sources:
-      - ref: values
-        repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
+      source:
+        repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git # Replace with your Git repo URL
         targetRevision: new-test
+        path: '{{appPath}}' # Path from the Json file.
+      destination:
+        server: '{{clusterAddress}}'
+        namespace: '{{namespace}}'
       syncPolicy:
         automated:
           prune: true
-          selfHeal: false
-        syncOptions:
-        - CreateNamespace=false
-        - ApplyOutOfSyncOnly=true
-        - Validate=true
-
-
+          selfHeal: true
 
 
 
