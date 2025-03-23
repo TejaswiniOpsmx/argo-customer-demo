@@ -10,7 +10,7 @@ spec:
       revision: new-test
       files:
       - path: "source-apps/*.json"
-  template:
+  template: # Correct indentation here
     metadata:
       name: '{{clusterName}}-guestbook'
       namespace: argocd # Ensure this is the Argo CD namespace
