@@ -20,7 +20,7 @@ spec:
       destination:
         namespace: '{{ carbon-ns }}'
         server: https://kubernetes.default.svc
-      project: sbx-cluster-v1
+      project: default
       revisionHistoryLimit: 1
       sources:
       - ref: values
