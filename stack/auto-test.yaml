@@ -5,26 +5,68 @@ metadata:
   namespace: argocd
 spec:
   generators:
-    - git:
-        repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
-        revision: "new-test"
-        files:
-          - path: "source-apps/*.json"  # Path to the config.json file in the repository
+  - git:
+      repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
+      revision: new-test
+      files:
+        - path: source-apps/config.json  # Path to config.json file in the repository
       jsonpath:
         expressions:
-          - expression: '[*]'  # Iterate over all items in the JSON array
+          - expression: '[*]'  # Iterate over all items in the JSON array from config.json
   template:
     metadata:
-      name: '{{.name}}'  # Interpolating the 'name' from the JSON object
+      name: '{{ .name }}-{{ carbon-ns }}-{{ carbon-app }}-{{ version }}-sadc-sbx-v1'
     spec:
-      project: default
-      source:
-        repoURL: '{{repoURL}}'  # Interpolating the 'repoURL' from the JSON object
-        targetRevision: '{{targetRevision}}'  # Interpolating 'targetRevision' from the JSON object
-        path: '{{path}}'  # Interpolating 'path' from the JSON object
       destination:
+        namespace: '{{ carbon-ns }}'
         server: https://kubernetes.default.svc
-        namespace: '{{namespace}}'  # Interpolating 'namespace' from the JSON object
+      project: sbx-cluster-v1
+      revisionHistoryLimit: 1
+      sources:
+      - ref: values
+        repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
+        targetRevision: new-test
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: false
+        syncOptions:
+        - CreateNamespace=false
+        - ApplyOutOfSyncOnly=true
+        - Validate=true
+
+
+
+
+
+
+# apiVersion: argoproj.io/v1alpha1
+# kind: ApplicationSet
+# metadata:
+#   name: git-appset-jsonpath
+#   namespace: argocd
+# spec:
+#   generators:
+#     - git:
+#         repoURL: "https://github.com/TejaswiniOpsmx/argo-customer-demo.git"
+#         revision: "new-test"
+#         files:
+#           - path: "source-apps/*.json"  # Path to the config.json file in the repository
+#       jsonpath:
+#         expressions:
+#           - expression: '[*]'  # Iterate over all items in the JSON array
+#   template:
+#     metadata:
+#       name: '{{.name}}'  # Interpolating the 'name' from the JSON object
+#     spec:
+#       project: default
+#       source:
+#         repoURL: '{{repoURL}}'  # Interpolating the 'repoURL' from the JSON object
+#         targetRevision: '{{targetRevision}}'  # Interpolating 'targetRevision' from the JSON object
+#         path: '{{path}}'  # Interpolating 'path' from the JSON object
+#       destination:
+#         server: https://kubernetes.default.svc
+#         namespace: '{{namespace}}'  # Interpolating 'namespace' from the JSON object
 
 
 
