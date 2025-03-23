@@ -28,6 +28,21 @@ spec:
           prune: true
           selfHeal: true
 
+# [
+#   {
+#     "clusterName": "myapp1",
+#     "clusterAddress": "https://kubernetes.default.svc",
+#     "namespace": "default",
+#     "appPath": "source-apps/application-set/generators"
+#   },
+#   {
+#     "clusterName": "myapp2",
+#     "clusterAddress": "https://kubernetes.default.svc",
+#     "namespace": "default",
+#     "appPath": "source-apps/applications/helm-source"
+#   }
+# ]
+
 
 
 
