@@ -2,13 +2,13 @@
   {
     "clusterName": "myapp1",
     "clusterAddress": "https://kubernetes.default.svc",
-    "namespace": "test",
+    "namespace": "default",
     "appPath": "asource-apps/applications/helm-source"
   },
   {
     "clusterName": "myapp2",
     "clusterAddress": "https://kubernetes.default.svc",
-    "namespace": "test1",
+    "namespace": "default",
     "appPath": "source-apps/applications/helm-source"
   }
 ]
