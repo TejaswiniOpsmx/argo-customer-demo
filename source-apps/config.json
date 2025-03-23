@@ -29,5 +29,11 @@
     "clusterAddress": "https://kubernetes.default.svc",
     "namespace": "default",
     "appPath": "source-apps/applications/helm-source"
+  },
+   {
+    "clusterName": "app6-appset-generator",
+    "clusterAddress": "https://kubernetes.default.svc",
+    "namespace": "default",
+    "appPath": "source-apps/application-set/generators"
   }
 ]
