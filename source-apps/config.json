@@ -1,36 +1,14 @@
 [
   {
-    "name": "myapp1",
-    "carbon-ns": "test1",
-    "carbon-app": "app1",
-    "version": "v1",
-    "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
-    "targetRevision": "new-test",
-    "path": "source-apps/applications/helm-source",
-    "namespace": "namespace1"
+    "clusterName": "myapp1",
+    "clusterAddress": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
+    "namespace": "test",
+    "appPath": "asource-apps/applications/helm-source"
   },
   {
-    "name": "myapp2",
-    "carbon-ns": "test2",
-    "carbon-app": "app2",
-    "version": "v2",
-    "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
-    "targetRevision": "master",
-    "path": "source-apps/applications/helm-source",
-    "namespace": "namespace2"
-  },
-  {
-    "name": "myapp3",
-    "carbon-ns": "test3",
-    "carbon-app": "app3",
-    "version": "v3",
-    "repoURL": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
-    "targetRevision": "new-test",
-    "path": "source-apps/applications/helm-source",
-    "namespace": "test3"
+    "clusterName": "myapp2",
+    "clusterAddress": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
+    "namespace": "test1",
+    "appPath": "source-apps/applications/helm-source"
   }
 ]
-
-
-
-
