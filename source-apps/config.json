@@ -6,6 +6,13 @@
     "appPath": "source-apps/applications/appset-automated-sync"
   },
   {
+    "clusterName": "app3-apps-comb-git-helm-src",
+    "clusterAddress": "https://kubernetes.default.svc",
+    "namespace": "default",
+    "appPath": "source-apps/applications/combination-git-helm-sources"
+  },
+  
+  {
     "clusterName": "app2",
     "clusterAddress": "https://kubernetes.default.svc",
     "namespace": "default",
