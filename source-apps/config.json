@@ -3,7 +3,7 @@
     "clusterName": "app1",
     "clusterAddress": "https://kubernetes.default.svc",
     "namespace": "default",
-    "appPath": "source-apps/application-set/generators"
+    "appPath": "source-apps/applications/helm-source"
   },
   {
     "clusterName": "app2",
