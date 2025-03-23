@@ -1,24 +1,24 @@
 [
   {
-    "clusterName": "applications-cmbn-git-helm-src",
+    "clusterName": "my-app1",
     "clusterAddress": "https://kubernetes.default.svc",
     "namespace": "default",
     "appPath": "source-apps/applications/combination-git-helm-sources"
   }
   {
-    "clusterName": "applications-git-src",
+    "clusterName": "my-app2",
     "clusterAddress": "https://kubernetes.default.svc",
     "namespace": "default",
     "appPath": "source-apps/applications/git-source"
   }
   {
-    "clusterName": "apps-global-sync",
+    "clusterName": "my-app3",
     "clusterAddress": "https://kubernetes.default.svc",
     "namespace": "default",
     "appPath": "source-apps/applications/global-sync"
   }
   {
-    "clusterName": "apps-helm-src",
+    "clusterName": "my-app4",
     "clusterAddress": "https://kubernetes.default.svc",
     "namespace": "default",
     "appPath": "source-apps/applications/helm-source"
