@@ -1,12 +1,12 @@
 [
   {
-    "clusterName": "myapp1",
+    "clusterName": "app1",
     "clusterAddress": "https://kubernetes.default.svc",
     "namespace": "default",
     "appPath": "source-apps/application-set/generators"
   },
   {
-    "clusterName": "myapp2",
+    "clusterName": "app2",
     "clusterAddress": "https://kubernetes.default.svc",
     "namespace": "default",
     "appPath": "source-apps/applications/helm-source"
