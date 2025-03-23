@@ -1,0 +1,38 @@
+[
+  {
+    "clusterName": "my-app1",
+    "clusterAddress": "https://kubernetes.default.svc",
+    "namespace": "default",
+    "appPath": "source-apps/applications/combination-git-helm-sources"
+  }
+  {
+    "clusterName": "my-app2",
+    "clusterAddress": "https://kubernetes.default.svc",
+    "namespace": "default",
+    "appPath": "source-apps/applications/git-source"
+  }
+  {
+    "clusterName": "my-app3",
+    "clusterAddress": "https://kubernetes.default.svc",
+    "namespace": "default",
+    "appPath": "source-apps/applications/global-sync"
+  }
+  {
+    "clusterName": "my-app4",
+    "clusterAddress": "https://kubernetes.default.svc",
+    "namespace": "default",
+    "appPath": "source-apps/applications/helm-source"
+  }
+  {
+    "clusterName": "appset-generators",
+    "clusterAddress": "https://kubernetes.default.svc",
+    "namespace": "default",
+    "appPath": "source-apps/application-set/generators"
+  }
+  {
+    "clusterName": "appset-progressive-syncs",
+    "clusterAddress": "https://kubernetes.default.svc",
+    "namespace": "default",
+    "appPath": "source-apps/application-set/progressive-syncs"
+  }
+]
