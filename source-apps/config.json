@@ -1,9 +1,9 @@
 [
   {
-    "clusterName": "app1",
+    "clusterName": "app1-appset-sync",
     "clusterAddress": "https://kubernetes.default.svc",
     "namespace": "default",
-    "appPath": "source-apps/applications/helm-source"
+    "appPath": "source-apps/applications/appset-automated-sync"
   },
   {
     "clusterName": "app2",
