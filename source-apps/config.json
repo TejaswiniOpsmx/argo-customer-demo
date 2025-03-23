@@ -1,13 +1,13 @@
 [
   {
     "clusterName": "myapp1",
-    "clusterAddress": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
+    "clusterAddress": "https://kubernetes.default.svc",
     "namespace": "test",
     "appPath": "asource-apps/applications/helm-source"
   },
   {
     "clusterName": "myapp2",
-    "clusterAddress": "https://github.com/TejaswiniOpsmx/argo-customer-demo.git",
+    "clusterAddress": "https://kubernetes.default.svc",
     "namespace": "test1",
     "appPath": "source-apps/applications/helm-source"
   }
