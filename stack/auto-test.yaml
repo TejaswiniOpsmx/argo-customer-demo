@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       name: '{{clusterName}}-guestbook'
-      namespace: default # Ensure this is the Argo CD namespace
+      namespace: argocd # Ensure this is the Argo CD namespace
     spec:
       project: default
       source:
