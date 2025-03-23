@@ -9,6 +9,6 @@
     "clusterName": "myapp2",
     "clusterAddress": "https://kubernetes.default.svc",
     "namespace": "default",
-    "appPath": "source-apps/applications/helm-source"
+    "appPath": "source-apps/applications/git-source"
   }
 ]
