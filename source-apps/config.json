@@ -1,11 +1,5 @@
 [
   {
-    "clusterName": "apps-appset-automated-sync",
-    "clusterAddress": "https://kubernetes.default.svc",
-    "namespace": "default",
-    "appPath": "source-apps/applications/appset-automated-sync"
-  },
-  {
     "clusterName": "applications-cmbn-git-helm-src",
     "clusterAddress": "https://kubernetes.default.svc",
     "namespace": "default",
