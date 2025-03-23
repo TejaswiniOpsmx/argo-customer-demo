@@ -17,9 +17,15 @@
     "namespace": "default",
     "appPath": "source-apps/applications/git-source"
   },
+  {
+    "clusterName": "app4-global-sync",
+    "clusterAddress": "https://kubernetes.default.svc",
+    "namespace": "default",
+    "appPath": "source-apps/applications/global-sync"
+  },
   
   {
-    "clusterName": "app4",
+    "clusterName": "app5-apps-helm-src",
     "clusterAddress": "https://kubernetes.default.svc",
     "namespace": "default",
     "appPath": "source-apps/applications/helm-source"
