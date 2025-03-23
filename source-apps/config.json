@@ -35,5 +35,11 @@
     "clusterAddress": "https://kubernetes.default.svc",
     "namespace": "default",
     "appPath": "source-apps/application-set/generators"
+  },
+  {
+    "clusterName": "app7-appset-prog-syncs",
+    "clusterAddress": "https://kubernetes.default.svc",
+    "namespace": "default",
+    "appPath": "source-apps/application-set/progressive-syncs"
   }
 ]
