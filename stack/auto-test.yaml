@@ -15,7 +15,7 @@ spec:
           - expression: '[*]'  # Iterate over all items in the JSON array from config.json
   template:
     metadata:
-      name: '{{ .name }}-{{ carbon-ns }}-{{ carbon-app }}-{{ version }}-sadc-sbx-v1'
+      name: '{{ .name }}-{{ carbon-ns }}-{{ carbon-app }}-{{ version }}'
     spec:
       destination:
         namespace: '{{ carbon-ns }}'
