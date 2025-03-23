@@ -21,7 +21,7 @@ spec:
         targetRevision: new-test
         path: '{{appPath}}' # Path from the Json file.
       destination:
-        server: '{{clusterAddress}}'
+        server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
       syncPolicy:
         automated:
