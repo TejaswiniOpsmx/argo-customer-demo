@@ -1,33 +1,64 @@
-
+# applicationset.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: git-appset-jsonpath
-  namespace: argocd # Ensure this is the Argo CD namespace
+  name: git-appset-dynamic
+  namespace: argocd
 spec:
   generators:
   - git:
-      repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git # Replace with your Git repo URL
+      repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
       revision: new-test
       files:
       - path: "source-apps/*.json"
-  template:
-    metadata:
-      name: '{{clusterName}}-guestbook'
-      namespace: argocd # Ensure this is the Argo CD namespace
-    spec:
-      project: default
-      source:
-        repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git # Replace with your Git repo URL
-        targetRevision: new-test
-        path: '{{appPath}}' # Path from the Json file.
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: '{{namespace}}'
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
+      template:
+        metadata:
+          name: '{{path.basename}}-app'
+          namespace: argocd
+        spec:
+          project: default
+          source:
+            repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
+            targetRevision: new-test
+            path: '{{appPath}}'
+          destination:
+            server: https://kubernetes.default.svc
+            namespace: default
+          syncPolicy:
+            automated:
+              prune: true
+              selfHeal: true
+
+
+# apiVersion: argoproj.io/v1alpha1
+# kind: ApplicationSet
+# metadata:
+#   name: git-appset-jsonpath
+#   namespace: argocd # Ensure this is the Argo CD namespace
+# spec:
+#   generators:
+#   - git:
+#       repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git # Replace with your Git repo URL
+#       revision: new-test
+#       files:
+#       - path: "source-apps/*.json"
+#   template:
+#     metadata:
+#       name: '{{clusterName}}-guestbook'
+#       namespace: argocd # Ensure this is the Argo CD namespace
+#     spec:
+#       project: default
+#       source:
+#         repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git # Replace with your Git repo URL
+#         targetRevision: new-test
+#         path: '{{appPath}}' # Path from the Json file.
+#       destination:
+#         server: https://kubernetes.default.svc
+#         namespace: '{{namespace}}'
+#       syncPolicy:
+#         automated:
+#           prune: true
+#           selfHeal: true
 
 # [
 #   {
