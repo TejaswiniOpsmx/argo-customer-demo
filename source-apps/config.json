@@ -1,4 +1,3 @@
-# config.json
 [
   {
     "appPath": "source-apps/applications/appset-automated-sync"
@@ -9,7 +8,7 @@
   {
     "appPath": "source-apps/applications/git-source"
   },
-    {
+  {
     "appPath": "source-apps/applications/global-sync"
   },
   {
