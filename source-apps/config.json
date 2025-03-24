@@ -2,6 +2,6 @@
   "clusterName": "apps-appset-syn",
   "appPaths": [
     "source-apps/application-set/generators",
-    "source-apps/applications/"
+    "source-apps/applications"
   ]
 }
