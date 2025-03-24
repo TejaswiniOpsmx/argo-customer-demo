@@ -12,14 +12,14 @@ spec:
           - path: "source-apps/*.json"
         template:
           metadata:
-            name: "{{ basename .appPath }}"
+            name: '{{clusterName}}-guestbook'
             namespace: argocd
           spec:
             project: default
             source:
               repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
               targetRevision: new-test
-              path: "{{ .appPath }}"
+              path: '{{appPath}}'
             destination:
               server: https://kubernetes.default.svc
               namespace: default
