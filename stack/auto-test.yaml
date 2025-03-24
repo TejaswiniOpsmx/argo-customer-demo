@@ -29,6 +29,25 @@ spec:
           prune: true
           selfHeal: true
 
+ # {
+ #    "appPath": "source-apps/applications/combination-git-helm-sources"
+ #  },
+ #  {
+ #    "appPath": "source-apps/applications/git-source"
+ #  },
+ #  {
+ #    "appPath": "source-apps/applications/global-sync"
+ #  },
+ #  {
+ #    "appPath": "source-apps/applications/helm-source"
+ #  },
+ #  {
+ #    "appPath": "source-apps/application-set/generators"
+ #  },
+ #  {
+ #    "appPath": "source-apps/application-set/progressive-syncs"
+ #  }
+
 # [
 #   {
 #     "clusterName": "myapp1",
