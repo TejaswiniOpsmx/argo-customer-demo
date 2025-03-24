@@ -1,4 +1,4 @@
 {
-    "clusterName": "apps-appset-syn",
-    "appPath": "source-apps/*"
-  }
+  "clusterName": "apps-appset-syn",
+  "appPath": "source-apps/*"
+}
