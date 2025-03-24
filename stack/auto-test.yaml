@@ -6,10 +6,10 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/myrepo/myapp.git
-        revision: main
+        repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git 
+        revision: new-test
         files:
-          - path: "source-apps/auto-test.yaml"
+          - path: "source-apps/*.json"
         template:
           metadata:
             name: "my-app-{{path.basename}}"
@@ -17,8 +17,8 @@ spec:
           spec:
             project: default
             source:
-              repoURL: https://github.com/myrepo/myapp.git
-              targetRevision: main
+              repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git 
+              targetRevision: new-test
               path: "{{path}}"
             destination:
               server: https://kubernetes.default.svc
