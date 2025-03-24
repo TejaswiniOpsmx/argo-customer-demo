@@ -12,7 +12,7 @@ spec:
           - path: "source-apps/*.json"
         template:
           metadata:
-            name: "my-app-{{path.basename}}"
+            name: "{{}}"
             namespace: argocd
           spec:
             project: default
