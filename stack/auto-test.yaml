@@ -1,4 +1,3 @@
-# applicationset.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
@@ -6,28 +5,29 @@ metadata:
   namespace: argocd
 spec:
   generators:
-  - git:
-      repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
-      revision: new-test
-      files:
-      - path: "source-apps/*.json"
-      template:
-        metadata:
-          name: '{{path.basename}}-app'
-          namespace: argocd
-        spec:
-          project: default
-          source:
-            repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
-            targetRevision: new-test
-            path: '{{appPath}}'
-          destination:
-            server: https://kubernetes.default.svc
-            namespace: default
-          syncPolicy:
-            automated:
-              prune: true
-              selfHeal: true
+    - git:
+        repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
+        revision: new-test
+        files:
+          - path: "source-apps/*.json"
+        template:
+          metadata:
+            name: '{{path.basename}}-app'
+            namespace: argocd
+          spec:
+            project: default
+            source:
+              repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git
+              targetRevision: new-test
+              path: '{{appPath}}'
+            destination:
+              server: https://kubernetes.default.svc
+              namespace: default
+            syncPolicy:
+              automated:
+                prune: true
+                selfHeal: true
+
 
 
 # apiVersion: argoproj.io/v1alpha1
