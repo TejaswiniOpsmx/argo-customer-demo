@@ -12,7 +12,7 @@ spec:
           - path: "source-apps/config.json"  # Reference to the config.json file
         template:
           metadata:
-            name: '{{basename}}-app'  # Correct use of path.basename
+            name: '{{path}}-app'  # Correct use of path.basename
             namespace: argocd
           spec:
             project: default
