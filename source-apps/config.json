@@ -1,7 +1,45 @@
-{
-  "clusterName": "apps-appset-syn",
-  "appPaths": [
-    "source-apps/application-set/generators/git-generator.yaml",
-    "source-apps/application-set/generators/git-generator.yaml"
-  ]
-}
+[
+  {
+    "clusterName": "app1-appset-sync",
+    "clusterAddress": "https://kubernetes.default.svc",
+    "namespace": "default",
+    "appPath": "source-apps/applications/appset-automated-sync"
+  },
+  {
+    "clusterName": "app2-apps-comb-git-helm-src",
+    "clusterAddress": "https://kubernetes.default.svc",
+    "namespace": "default",
+    "appPath": "source-apps/applications/combination-git-helm-sources"
+  },
+  {
+    "clusterName": "app3comb-git-src",
+    "clusterAddress": "https://kubernetes.default.svc",
+    "namespace": "default",
+    "appPath": "source-apps/applications/git-source"
+  },
+  {
+    "clusterName": "app4-global-sync",
+    "clusterAddress": "https://kubernetes.default.svc",
+    "namespace": "default",
+    "appPath": "source-apps/applications/global-sync"
+  },
+  
+  {
+    "clusterName": "app5-apps-helm-src",
+    "clusterAddress": "https://kubernetes.default.svc",
+    "namespace": "default",
+    "appPath": "source-apps/applications/helm-source"
+  },
+   {
+    "clusterName": "app6-appset-generator",
+    "clusterAddress": "https://kubernetes.default.svc",
+    "namespace": "default",
+    "appPath": "source-apps/application-set/generators"
+  },
+  {
+    "clusterName": "app7-appset-prog-syncs",
+    "clusterAddress": "https://kubernetes.default.svc",
+    "namespace": "default",
+    "appPath": "source-apps/application-set/progressive-syncs"
+  }
+]
