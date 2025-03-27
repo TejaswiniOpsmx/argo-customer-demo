@@ -1,0 +1,6 @@
+{
+  "clusterName": "dev-cluster",
+  "clusterAddress": "https://kubernetes.default.svc",
+  "namespace": "dev",
+  "appPath": "source-apps/applications/dev-app"
+}
