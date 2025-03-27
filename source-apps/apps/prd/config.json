@@ -1,0 +1,6 @@
+{
+  "clusterName": "prd-cluster",
+  "clusterAddress": "https://kubernetes.default.svc",
+  "namespace": "prd",
+  "appPath": "source-apps/applications/prd-app"
+}
