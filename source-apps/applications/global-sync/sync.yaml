@@ -9,8 +9,8 @@ spec:
     namespace: test
   project: default
   source:
-    repoURL: https://github.com/OpsMx/argo-customer-demo.git  # Replace with your repo URL
-    targetRevision: testcase
+    repoURL: https://github.com/TejaswiniOpsmx/argo-customer-demo.git  # Replace with your repo URL
+    targetRevision: new-test
     path: source-data/global-sync  # Replace with the correct path containing the ConfigMap YAML
   syncPolicy:
     # syncTimeout: 5 # seconds, default: unlimited
