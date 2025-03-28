@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: somecm1
+  name: somecm11
 data:
   foo: bar
   benda: beera
@@ -10,7 +10,7 @@ data:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: my-secret1
+  name: my-secret11
 type: Opaque
 data:
   username: dXNlcm5hbWU=  # Base64 encoded value of "username"
@@ -19,7 +19,7 @@ data:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: sync-wait-job1
+  name: sync-wait-job11
   annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/sync-wave: "-1"  # Runs before other resources
@@ -35,7 +35,7 @@ spec:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: sync-wait-job2
+  name: sync-wait-job21
   annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/sync-wave: "-1"
