@@ -5,6 +5,7 @@ metadata:
   namespace: argocd
   labels:
      for: jpmc
+     team: devops
 spec:
   destination:
     namespace: argocd-kt
