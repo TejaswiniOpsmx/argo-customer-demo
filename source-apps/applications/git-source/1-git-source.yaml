@@ -11,8 +11,8 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: source-data/git/single-git-source
-    repoURL: 'https://github.com/OpsMx/argo-customer-demo.git'
-    targetRevision: testcase
+    repoURL: 'https://github.com/TejaswiniOpsMx/argo-customer-demo.git'
+    targetRevision: new-test
   project: default
   syncPolicy:
     automated:
