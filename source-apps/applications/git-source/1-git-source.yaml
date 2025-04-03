@@ -5,13 +5,12 @@ metadata:
   namespace: argocd
   labels:
      for: jpmc
-     team: devops
 spec:
   destination:
     namespace: argocd-kt
     server: 'https://kubernetes.default.svc'
   source:
-    path: source-data/git/single-git-source
+    path: source-data/git/single-git-source1
     repoURL: 'https://github.com/TejaswiniOpsMx/argo-customer-demo.git'
     targetRevision: new-test
   project: default
