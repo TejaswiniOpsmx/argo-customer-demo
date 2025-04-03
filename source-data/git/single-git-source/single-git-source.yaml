@@ -16,3 +16,4 @@ metadata:
   namespace: default
 data:
   test: "new-dr"
+  test1: "new-dir1"
